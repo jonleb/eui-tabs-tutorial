@@ -7,7 +7,7 @@
         "e2e": "ng e2e",
         "postinstall": "tslint --project ./src/tsconfig.app.json --fix",
         "start-mock-server": "nodemon --watch ./mock ./mock/server.js",
-        "start-serve": "eui-scripts serve-app --configuration=proxy-mock",
+        "start-serve": "eui-scripts serve-app --configuration=proxy-mock --host 0.0.0.0",
         "start": "npm-run-all --parallel start-mock-server start-serve",
         "start-proxy": "eui-scripts serve-app --configuration=proxy",
         "build": "eui-scripts build-app",

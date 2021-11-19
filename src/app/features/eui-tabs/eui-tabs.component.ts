@@ -4,4 +4,5 @@ import { Component } from '@angular/core';
     templateUrl: './eui-tabs.component.html'
 })
 export class EuiTabsComponent {
+
 }

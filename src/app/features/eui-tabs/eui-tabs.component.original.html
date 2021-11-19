@@ -1,0 +1,66 @@
+<eui-page>
+    <eui-page-header label="EUI TABS"></eui-page-header>
+
+    <eui-page-content>
+        <h2>eui-tabs tutorial</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li>
+                        Décorer le tab 
+                        (missing: Chips)
+                    </li>
+                    <li>
+                        Ajouter et retirer un tab. 
+                        Mettre des tabs par défauts et ensuite ceux qu'on ajoute, 
+                        on peut les enlever/retirer (closable)
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Decorate the tabs</h3>
+                <eui-tabs >
+                    <eui-tab>
+                        <eui-tab-label>
+                            <span class="eui-icon eui-icon-home eui-u-color-primary"> </span>
+                            Tab 1
+                        </eui-tab-label>
+                        <eui-tab-content>
+                            Tab containing an icon with mr-5
+                        </eui-tab-content>
+                    </eui-tab>
+                    <eui-tab hasBackgroundFilled euiInfo>
+                        <eui-tab-label>
+                            <div class="d-flex flex-column">
+                                <span> Background filled</span>
+                                <span euiLabel >my sublabel</span>
+                            </div>
+                        </eui-tab-label>
+                            
+                        <eui-tab-content>Simple marker </eui-tab-content>
+                    </eui-tab>
+                    
+                    <eui-tab state="info">
+                        <eui-tab-label>
+                            With chips
+                            <eui-chip euiSizeS euiDanger><span euiLabel>9</span></eui-chip>
+                        </eui-tab-label>
+                            
+                        <eui-tab-content>Simple marker </eui-tab-content>
+                    </eui-tab>
+
+                    <euiTabsRightContent>
+                        <button euiButton euiOutline euiPrimary class="mr-2">Add tab</button>
+                        <button euiButton euiSecundary>Remove tab</button>
+                    </euiTabsRightContent>
+                </eui-tabs>
+            </div>
+        </div>
+    </eui-page-content>
+</eui-page>

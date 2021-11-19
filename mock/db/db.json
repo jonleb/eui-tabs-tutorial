@@ -8,5 +8,13 @@
         },
         "userId": "doejohn",
         "email": "John.DOE@ec.europa.eu"
+    },
+
+    "tutorials": {
+        "eui-tooltip":{
+            "name": "eui-tooltip",
+            "content": "blbla"
+        }
     }
+
 }

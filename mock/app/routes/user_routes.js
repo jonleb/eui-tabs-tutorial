@@ -20,5 +20,9 @@ module.exports = function (app, db) {
         .then(user => res.send(user))
     });
 
+    app.get('/api/tutorials',(req,res) => {
+        res.send(db.get('tutorials'))
+    });
+
   });
 };

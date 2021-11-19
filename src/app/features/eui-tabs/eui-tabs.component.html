@@ -2,6 +2,55 @@
     <eui-page-header label="EUI TABS"></eui-page-header>
 
     <eui-page-content>
-        eui-tabs tutorial
+        <eui-tabs>
+            
+            <eui-tab>
+                <eui-tab-label>
+                    <span class="eui-icon eui-icon-home eui-u-color-primary ml-2"></span>
+                    Home
+                </eui-tab-label>
+                <eui-tab-content>
+                    <p>
+                        This is a tab with an icon set on the left
+                    </p>
+                </eui-tab-content>
+            </eui-tab>
+
+            <eui-tab hasBackgroundFilled euiDanger>
+                <eui-tab-label>
+                    <div class="d-flex flex-column">
+                        Risks
+                        <span euiLabel euiSizeXS>
+                            Level 1
+                        </span>
+                    </div>
+                    <eui-chip euiSizeS euiDanger>9</eui-chip> 
+                </eui-tab-label>
+                <eui-tab-content>
+                    <ul>
+                        <li><a>Risk 1</a></li>
+                        <li><a>Risk 2</a></li>
+                        <li><a>Risk 2323</a></li>
+                        <li><a>Risk 1564</a></li>
+                        <li><a>Risk 156</a></li>
+                        <li><a>Risk 123</a></li>
+                        <li><a>Risk 456</a></li>
+                        <li><a>Risk 869</a></li>
+                        <li><a>Risk 56</a></li>
+                        <li><a>Risk 466666</a></li>
+                    </ul>
+                </eui-tab-content>
+            </eui-tab>
+
+
+            <!-- Newly created tabes by user will be created there -->
+
+
+            <euiTabsRightContent>
+                <button euiButton euiOutline euiPrimary class="mr-2">Add tab</button>
+                <button euiButton euiSecundary> Remove tab</button>
+            </euiTabsRightContent>
+
+        </eui-tabs> 
     </eui-page-content>
 </eui-page>
