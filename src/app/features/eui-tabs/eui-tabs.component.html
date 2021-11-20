@@ -2,7 +2,9 @@
     <eui-page-header label="EUI TABS"></eui-page-header>
 
     <eui-page-content>
-        <eui-tabs>
+        <eui-tabs 
+                [activeTabIndex]="1"
+            >
             
             <eui-tab>
                 <eui-tab-label>
@@ -49,6 +51,7 @@
                 *ngFor="let userTab of userTabs; let i = index" 
                 isClosable="{{ userTab.isClosable }}"
                 isDisabled="{{ userTab.isDisabled }}"
+                (click)="changeTab(i)"
                 >
                 <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
                 <eui-tab-content>

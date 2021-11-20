@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { EuiTabComponent } from '@eui/components-next';
 
 @Component({
+    selector: 'tutorialTabs',
     templateUrl: './eui-tabs.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,    
 })
@@ -9,7 +10,11 @@ import { EuiTabComponent } from '@eui/components-next';
 export class EuiTabsComponent {
     public userTabs = [];
     
-    constructor(){};
+    public activeTab = 1; 
+    
+
+    constructor(){
+    };
     
     public addTab(){
         // Do your logic here
@@ -20,5 +25,10 @@ export class EuiTabsComponent {
                 isDisabled: Math.random() >= 0.5,
                 isClosable: Math.random() >= 0.5 
             });
+
+    }
+
+    public changeTab(number){
+        console.log(number);   
     }
 }
