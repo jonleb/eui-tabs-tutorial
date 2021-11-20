@@ -44,10 +44,25 @@
 
 
             <!-- Newly created tabes by user will be created there -->
-
+            
+            <eui-tab 
+                *ngFor="let userTab of userTabs; let i = index" 
+                isClosable="{{ userTab.isClosable }}"
+                isDisabled="{{ userTab.isDisabled }}"
+                >
+                <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
+                <eui-tab-content>
+                    {{ userTab.tabContent }}
+                </eui-tab-content>
+            </eui-tab>
 
             <euiTabsRightContent>
-                <button euiButton euiOutline euiPrimary class="mr-2">Add tab</button>
+                <button euiButton 
+                        euiOutline 
+                        euiPrimary 
+                        class="mr-2"
+                        (click)="addTab()">
+                    Add tab</button>
                 <button euiButton euiSecundary> Remove tab</button>
             </euiTabsRightContent>
 
