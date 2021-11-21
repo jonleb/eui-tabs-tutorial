@@ -2,10 +2,8 @@
     <eui-page-header label="EUI TABS"></eui-page-header>
 
     <eui-page-content>
-        <eui-tabs 
-                [activeTabIndex]="1"
-            >
-            
+        Tabs Lenght = {{ tabsLength }}
+        <eui-tabs #euiTabs >
             <eui-tab>
                 <eui-tab-label>
                     <span class="eui-icon eui-icon-home eui-u-color-primary ml-2"></span>
@@ -26,7 +24,7 @@
                             Level 1
                         </span>
                     </div>
-                    <eui-chip euiSizeS euiDanger>9</eui-chip> 
+                    <eui-chip euiSizeS euiDanger>9</eui-chip>
                 </eui-tab-label>
                 <eui-tab-content>
                     <ul>
@@ -46,12 +44,12 @@
 
 
             <!-- Newly created tabes by user will be created there -->
-            
-            <eui-tab 
-                *ngFor="let userTab of userTabs; let i = index" 
+
+            <eui-tab
+                *ngFor="let userTab of userTabs; let i = index"
                 isClosable="{{ userTab.isClosable }}"
                 isDisabled="{{ userTab.isDisabled }}"
-                (click)="changeTab(i)"
+                isActive="{{ userTab.isActive }}"
                 >
                 <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
                 <eui-tab-content>
@@ -60,15 +58,15 @@
             </eui-tab>
 
             <euiTabsRightContent>
-                <button euiButton 
-                        euiOutline 
-                        euiPrimary 
+                <button euiButton
+                        euiOutline
+                        euiPrimary
                         class="mr-2"
                         (click)="addTab()">
                     Add tab</button>
                 <button euiButton euiSecundary> Remove tab</button>
             </euiTabsRightContent>
 
-        </eui-tabs> 
+        </eui-tabs>
     </eui-page-content>
-</eui-page>
+<ctive/eui-page>

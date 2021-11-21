@@ -1,34 +1,37 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { EuiTabComponent } from '@eui/components-next';
+import { ViewChild,  Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { EuiTabsComponent, EuiTabComponent } from '@eui/components-next';
+import { Observable, of } from 'rxjs';
 
 @Component({
     selector: 'tutorialTabs',
     templateUrl: './eui-tabs.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,    
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class EuiTabsComponent {
-    public userTabs = [];
-    
-    public activeTab = 1; 
-    
+export class TutorialEuiTabsComponent {
 
-    constructor(){
-    };
-    
+    public userTabs = [];
+    public tabsLength = 2;
+
+    @ViewChild('euiTabs') euiTabs: EuiTabsComponent;
+
+    constructor(){}
+
     public addTab(){
-        // Do your logic here
+        console.log("Number of tabs before updating array: " + this.euiTabs.tabs.length);
         this.userTabs.push(
             {
-                tabLabel: 'User Tab', 
-                tabContent: 'User Tab content',
-                isDisabled: Math.random() >= 0.5,
-                isClosable: Math.random() >= 0.5 
+                tabLabel: 'User Tab '+ (this.userTabs.length),
+                tabContent: 'User Tab content ' + (this.userTabs.length),
+                isDisabled: false,
+                isClosable: true,
             });
+        this.euiTabs.activeTabIndex = this.euiTabs.tabs.length;
 
+        /**
+         * I did a try with this.euiTabs.changeTab(this.euiTabs.tabs.length)
+         * but it seems to have an issue with the sync
+         */
     }
 
-    public changeTab(number){
-        console.log(number);   
-    }
 }

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EuiTabsComponent } from './eui-tabs.component';
+import { TutorialEuiTabsComponent } from './eui-tabs.component';
 
 const routes: Routes = [
-    { path: '', component: EuiTabsComponent },
+    { path: '', component: TutorialEuiTabsComponent },
 ];
 
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: '', component: EuiTabsComponent }
+            { path: '', component: TutorialEuiTabsComponent }
         ])
     ],
 })
-export class EuiTabsRoutingModule {}
+export class TutorialEuiTabsRoutingModule {}
