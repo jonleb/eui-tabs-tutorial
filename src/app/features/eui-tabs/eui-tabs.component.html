@@ -2,7 +2,9 @@
     <eui-page-header label="EUI TABS"></eui-page-header>
 
     <eui-page-content>
-        Tabs Lenght = {{ tabsLength }}
+        <p>
+            Add a tab and switch on it directly (by using activeTabIndex)
+        </p>
         <eui-tabs #euiTabs >
             <eui-tab>
                 <eui-tab-label>
@@ -13,6 +15,7 @@
                     <p>
                         This is a tab with an icon set on the left
                     </p>
+                    <a href=""></a>
                 </eui-tab-content>
             </eui-tab>
 
@@ -49,7 +52,6 @@
                 *ngFor="let userTab of userTabs; let i = index"
                 isClosable="{{ userTab.isClosable }}"
                 isDisabled="{{ userTab.isDisabled }}"
-                isActive="{{ userTab.isActive }}"
                 >
                 <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
                 <eui-tab-content>
