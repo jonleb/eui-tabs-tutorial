@@ -5,7 +5,7 @@ export const GLOBAL: GlobalConfig = {
     i18n: {
         i18nService: {
             defaultLanguage: 'en',
-            languages: ['en', 'fr'],
+            languages: [],
         },
         i18nLoader: {
             i18nFolders: ['i18n-eui', 'i18n', 'i18n-ecl'],
