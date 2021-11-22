@@ -17,7 +17,7 @@ export class TutorialEuiTabsComponent {
 
     constructor(){}
 
-    public addTab(){
+    public addTab(): void{
         console.log("Number of tabs before updating array: " + this.euiTabs.tabs.length);
         this.userTabs.push(
             {
@@ -25,6 +25,7 @@ export class TutorialEuiTabsComponent {
                 tabContent: 'User Tab content ' + (this.userTabs.length),
                 isDisabled: false,
                 isClosable: true,
+                isVisible: true
             });
         this.euiTabs.activeTabIndex = this.euiTabs.tabs.length;
 
@@ -33,5 +34,46 @@ export class TutorialEuiTabsComponent {
          * but it seems to have an issue with the sync
          */
     }
+
+    public openClosedTab(): void{
+        //let shown =
+        this.euiTabs.tabs.forEach(tab =>
+            tab.isVisible = true
+        )
+        this.euiTabs.changeTab(this.euiTabs.activeTabIndex);
+    }
+
+    public deleteTab(): void{
+        let toDelete = this.euiTabs.activeTabIndex;
+        // Check if the tab is allowed to be closed
+        if (this.euiTabs.tabs[toDelete].isClosable){
+            this.euiTabs.tabs[toDelete].isVisible = false;
+            // Delete the elemnt from the table userTabs
+            // Remove 2 from the index because we know that there already 2
+            // elemnts in the colection of tabs
+            const itab: number = this.userTabs.indexOf(toDelete - 2)
+            this.userTabs.splice(itab, 1);
+            // Select first tab as active one
+            this.euiTabs.changeTab(0);
+        }
+    }
+
+    public lockTab(){
+        let toLock = this.euiTabs.activeTabIndex;
+        if (this.euiTabs.tabs[toLock].isClosable){
+            this.euiTabs.tabs[toLock].isDisabled = true;
+        }
+        this.euiTabs.changeTab(0);
+    }
+
+    public unlockTab(){
+        this.euiTabs.tabs.forEach( t => t.isDisabled = false )
+        this.euiTabs.changeTab(this.euiTabs.activeTabIndex);
+    }
+
+    public onTabClosed(event: { tab: EuiTabComponent, index: number }): void {
+        console.log("Number of tabs: " + this.euiTabs.tabs.length);
+    }
+
 
 }

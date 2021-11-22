@@ -3,72 +3,124 @@
 
     <eui-page-content>
         <p>
-            Add a tab and switch on it directly (by using activeTabIndex)
+            Add possibility to remove a tab via a button, close tab, and reopen them
+            Also disable a specific tab and reable it.
         </p>
-        <eui-tabs #euiTabs >
-            <eui-tab>
-                <eui-tab-label>
-                    <span class="eui-icon eui-icon-home eui-u-color-primary ml-2"></span>
-                    Home
-                </eui-tab-label>
-                <eui-tab-content>
-                    <p>
-                        This is a tab with an icon set on the left
-                    </p>
-                    <a href=""></a>
-                </eui-tab-content>
-            </eui-tab>
-
-            <eui-tab hasBackgroundFilled euiDanger>
-                <eui-tab-label>
-                    <div class="d-flex flex-column">
-                        Risks
-                        <span euiLabel euiSizeXS>
-                            Level 1
-                        </span>
-                    </div>
-                    <eui-chip euiSizeS euiDanger>9</eui-chip>
-                </eui-tab-label>
-                <eui-tab-content>
-                    <ul>
-                        <li><a (click)="addTab()">Risk 1</a></li>
-                        <li><a>Risk 2</a></li>
-                        <li><a>Risk 2323</a></li>
-                        <li><a>Risk 1564</a></li>
-                        <li><a>Risk 156</a></li>
-                        <li><a>Risk 123</a></li>
-                        <li><a>Risk 456</a></li>
-                        <li><a>Risk 869</a></li>
-                        <li><a>Risk 56</a></li>
-                        <li><a>Risk 466666</a></li>
-                    </ul>
-                </eui-tab-content>
-            </eui-tab>
-
-
-            <!-- Newly created tabes by user will be created there -->
-
-            <eui-tab
-                *ngFor="let userTab of userTabs; let i = index"
-                isClosable="{{ userTab.isClosable }}"
-                isDisabled="{{ userTab.isDisabled }}"
-                >
-                <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
-                <eui-tab-content>
-                    {{ userTab.tabContent }}
-                </eui-tab-content>
-            </eui-tab>
-
-            <euiTabsRightContent>
+        <div class="row">
+                <div class="col-md-12">
+                    <button euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="addTab()">
+                Add tab</button>
                 <button euiButton
-                        euiOutline
-                        euiPrimary
-                        class="mr-2"
-                        (click)="addTab()">
-                    Add tab</button>
-                <button euiButton euiSecundary> Remove tab</button>
-            </euiTabsRightContent>
+                    euiOutline
+                    euiSecundary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="lockTab()">
+                Lock tab</button>
+                <button euiButton
+                    euiOutline
+                    euiSecundary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="unlockTab()">
+                Unlock tab</button>
+                <button
+                    euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="openClosedTab()">
+                    Recover tabs
+                </button>
+                <button
+                    euiButton
+                    euiOutline
+                    euiDanger
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="deleteTab(this.euiTabs.activeIndex)">
+                    Delete tab
+                </button>
+                <eui-tabs #euiTabs (tabClosed)="onTabClosed($event)">
+                    <eui-tab>
+                        <eui-tab-label>
+                            <span class="eui-icon eui-icon-home eui-u-color-primary ml-2"></span>
+                            Home
+                        </eui-tab-label>
+                        <eui-tab-content>
+                            <p>
+                                In this use case, you have 2 hardcoded tabs that the user will not be able to delete or close.
+                                <br/>
+                                The user will have the possibility to add tabs that we will called UserTabs.
+                                The user is allowed to closed the tab by using the "x" on the tab itself og by using
+                                a button in the content. The user will be allow to reopen all the tabs by clicking on
+                                "Recover tabs".
+                            </p>
+                            <p>
+                                It is possible to "Add tab" which will call a method in the component.ts file
+                                to add the element in the corresponding array. Once done, the tab is activated
+                                by getting the index and setting the activeIndex.
+                            </p>
+                            <p>
 
-        </eui-tabs>
+                            </p>
+                        </eui-tab-content>
+                    </eui-tab>
+
+                    <eui-tab hasBackgroundFilled euiDanger>
+                        <eui-tab-label>
+                            <div class="d-flex flex-column">
+                                Risks
+                                <span euiLabel euiSizeXS>
+                                    Level 1
+                                </span>
+                            </div>
+                            <eui-chip euiSizeS euiDanger>9</eui-chip>
+                        </eui-tab-label>
+                        <eui-tab-content>
+                            <ul>
+                                <li><a (click)="addTab()">Risk 1</a></li>
+                                <li><a>Risk 2</a></li>
+                                <li><a>Risk 2323</a></li>
+                                <li><a>Risk 1564</a></li>
+                                <li><a>Risk 156</a></li>
+                                <li><a>Risk 123</a></li>
+                                <li><a>Risk 456</a></li>
+                                <li><a>Risk 869</a></li>
+                                <li><a>Risk 56</a></li>
+                                <li><a>Risk 466666</a></li>
+                            </ul>
+                        </eui-tab-content>
+                    </eui-tab>
+
+
+                    <!-- Newly created tabes by user will be created there -->
+
+                    <eui-tab
+                        *ngFor="let userTab of userTabs; let i = index"
+                        isClosable="{{ userTab.isClosable }}"
+                        isDisabled="{{ userTab.isDisabled }}"
+                        >
+                        <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
+                        <eui-tab-content>
+                            {{ userTab.tabContent }}
+                        </eui-tab-content>
+                    </eui-tab>
+
+                    <euiTabsRightContent>
+
+                    </euiTabsRightContent>
+
+                </eui-tabs>
+            </div>
+        </div>
+
+
     </eui-page-content>
 <ctive/eui-page>
