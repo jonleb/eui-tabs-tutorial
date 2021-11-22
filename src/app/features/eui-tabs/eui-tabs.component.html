@@ -14,39 +14,42 @@
                     euiSizeXS
                     class="mr-2"
                     (click)="addTab()">
-                Add tab</button>
-                <button euiButton
-                    euiOutline
-                    euiSecundary
-                    euiSizeXS
-                    class="mr-2"
-                    (click)="lockTab()">
-                Lock tab</button>
-                <button euiButton
-                    euiOutline
-                    euiSecundary
-                    euiSizeXS
-                    class="mr-2"
-                    (click)="unlockTab()">
-                Unlock tab</button>
-                <button
-                    euiButton
-                    euiOutline
-                    euiPrimary
-                    euiSizeXS
-                    class="mr-2"
-                    (click)="openClosedTab()">
-                    Recover tabs
-                </button>
-                <button
-                    euiButton
-                    euiOutline
-                    euiDanger
-                    euiSizeXS
-                    class="mr-2"
-                    (click)="deleteTab(this.euiTabs.activeIndex)">
-                    Delete tab
-                </button>
+                        Add tab
+                    </button>
+                    <button euiButton
+                        euiOutline
+                        euiSecundary
+                        euiSizeXS
+                        class="mr-2"
+                        (click)="lockTab()">
+                        Lock tab
+                    </button>
+                    <button euiButton
+                        euiOutline
+                        euiSecundary
+                        euiSizeXS
+                        class="mr-2"
+                        (click)="unlockTab()">
+                        Unlock tab
+                    </button>
+                    <button
+                        euiButton
+                        euiOutline
+                        euiPrimary
+                        euiSizeXS
+                        class="mr-2"
+                        (click)="openClosedTab()">
+                        Recover tabs
+                    </button>
+                    <button
+                        euiButton
+                        euiOutline
+                        euiDanger
+                        euiSizeXS
+                        class="mr-2"
+                        (click)="deleteTab()">
+                        Delete tab
+                    </button>
                 <eui-tabs #euiTabs (tabClosed)="onTabClosed($event)">
                     <eui-tab>
                         <eui-tab-label>

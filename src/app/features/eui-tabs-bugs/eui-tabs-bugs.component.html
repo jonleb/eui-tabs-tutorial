@@ -31,7 +31,7 @@
                     euiSizeXS
                     class="mr-2"
                     (click)="lockTabChangeTab()">
-                    Lock tab by changeTab
+                    Disable tab by changeTab
                 </button>
 
                 <button
@@ -41,9 +41,17 @@
                     euiSizeXS
                     class="mr-2"
                     (click)="lockTabByActiveTabIndex()">
-                    Lock tab by activateTabIndex
+                    Disable tab by activateTabIndex
                 </button>
-
+                <button
+                    euiButton
+                    euiOutline
+                    euiDanger
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="deleteTab()">
+                    Delete tab
+                </button>
                 <eui-tabs #euiTabs>
                     <eui-tab>
                         <eui-tab-label>
@@ -77,6 +85,16 @@
                             </p>
                             <p>
                                 Try by clicking multiple times on "Add tab (click until hiding this right content)"
+                            </p>
+                            <h3>Activate tab outside of the scrollable view is not showing the tab (only content)</h3>
+                            <p>
+                                When you have a lot of tabs, the scrolling is activated. When the last tab is selected,
+                                the first one can be outside of the view (on the left). If a tab outside of the scrollable view
+                                is selected programmatically, the content is shown but the tab is not show.
+                            </p>
+                            <p>
+                                To reproduce, click multliple time on "Add tab (Activate index)" until the Home tab is hidden
+                                and select the last tab. Click on"Delete tab". Content from Home will be showned but not the tab label.
                             </p>
                         </eui-tab-content>
                     </eui-tab>
