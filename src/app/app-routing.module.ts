@@ -6,6 +6,7 @@ const routes: Routes = [
     { path: 'index.jsp', redirectTo: 'screen/home' },
     { path: 'screen/home', loadChildren: './features/home/home.module#Module' },
     { path: 'tutorials/eui-tabs', loadChildren: './features/eui-tabs/eui-tabs.module#Module' },
+    { path: 'tutorials/eui-tabs-bugs', loadChildren: './features/eui-tabs-bugs/eui-tabs-bugs.module#Module' },
 
 ];
 

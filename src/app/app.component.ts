@@ -20,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     sidebarItems = [
         { label: 'Home', url: 'screen/home', iconClass: 'eui-icon-home' },
-        { label: 'EUI TABS', url: 'tutorials/eui-tabs', iconClass: 'eui-icon-work' },
+        { label: 'eUI Tabs', url: 'tutorials/eui-tabs', iconClass: 'eui-icon-work' },
+        { label: 'eUI Tabs Bugs', url: 'tutorials/eui-tabs-bugs', iconClass: 'eui-icon-work' },
     ];
     notificationItems = [
         { label: 'Title label 1', subLabel: 'Subtitle label' },

@@ -1,0 +1,127 @@
+<eui-page>
+    <eui-page-header label="EUI TABS"></eui-page-header>
+
+    <eui-page-content>
+        <p>
+            Add possibility to remove a tab via a button, close tab, and reopen them
+            Also disable a specific tab and reable it.
+        </p>
+        <div class="row">
+                <div class="col-md-12">
+                    <button euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="addTabByActiveTabIndex()">
+                        Add tab (activateTabIndex)
+                    </button>
+                    <button euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="addTabByChangeTab()">
+                        Add tab (changeTab)
+                    </button>
+                <button
+                    euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="lockTabChangeTab()">
+                    Lock tab by changeTab
+                </button>
+
+                <button
+                    euiButton
+                    euiOutline
+                    euiPrimary
+                    euiSizeXS
+                    class="mr-2"
+                    (click)="lockTabByActiveTabIndex()">
+                    Lock tab by activateTabIndex
+                </button>
+
+                <eui-tabs #euiTabs>
+                    <eui-tab>
+                        <eui-tab-label>
+                            <span class="eui-icon eui-icon-home eui-u-color-primary ml-2"></span>
+                            Home
+                        </eui-tab-label>
+                        <eui-tab-content>
+                            <h3>Usage of activateTabIndex and changeTab</h3>
+                            <p>
+                                See method addTabByActiveTabIndex and addTabByChangeTab
+                            </p>
+                            <h4>Goal 1 - Add tab</h4>
+                            <p>
+                                Add a new tab by using an array in the component and
+                                by activating the newly created tab. When using changeTab,
+                                it doesn't work but by ativeTabIndex it works
+                            </p>
+                            <p>
+                                Try by clicking on "Add tab (activateTabIndex)" and next by clicking on
+                                "Add tab (changeTab)"
+                            </p>
+                            <h4>Goal 2: Set isDisabled and switch to a specific tab</h4>
+                            <p>
+                                Lock a tab (isDisabled=false) and switch to the first tab.
+                                By using changeTab it works and by using activeTabIndex it doesn't.
+                            </p>
+                            <h3>Scrollable tab content hide euiTabsRightContent</h3>
+                            <p>
+                                When you add tabs and the scrollable content appears, it
+                                hides the euiTabsRightContent.
+                            </p>
+                            <p>
+                                Try by clicking multiple times on "Add tab (click until hiding this right content)"
+                            </p>
+                        </eui-tab-content>
+                    </eui-tab>
+
+
+
+                    <!-- Newly created tabes by user will be created there -->
+
+                    <eui-tab
+                        *ngFor="let userTab of userTabs; let i = index"
+                        isClosable="{{ userTab.isClosable }}"
+                        isDisabled="{{ userTab.isDisabled }}"
+                        >
+                        <eui-tab-label>{{ userTab.tabLabel}}</eui-tab-label>
+                        <eui-tab-content>
+                            {{ userTab.tabContent }}
+                        </eui-tab-content>
+                    </eui-tab>
+
+                    <euiTabsRightContent>
+                        <button euiButton
+                            euiOutline
+                            euiPrimary
+                            euiSizeXS
+                            class="mr-2"
+                            (click)="addTabByActiveTabIndex()">
+                                Add tab (click until hiding this right content)
+                        </button>
+
+                        <button
+                        euiButton
+                        euiOutline
+                        euiPrimary
+                        euiSizeXS
+                        class="mr-2"
+                        (click)="openClosedTabChangeTab()">
+                        Recover tabs
+                    </button>
+
+                    </euiTabsRightContent>
+
+                </eui-tabs>
+            </div>
+        </div>
+
+
+    </eui-page-content>
+<ctive/eui-page>
