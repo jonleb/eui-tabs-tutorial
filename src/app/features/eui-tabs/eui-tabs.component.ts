@@ -35,7 +35,7 @@ export class TutorialEuiTabsComponent {
          */
     }
 
-    public openClosedTab(): void{
+    public showAllTabs(): void{
         //let shown =
         this.euiTabs.tabs.forEach(tab =>
             tab.isVisible = true
@@ -47,7 +47,7 @@ export class TutorialEuiTabsComponent {
         let toDelete = this.euiTabs.activeTabIndex;
         // Check if the tab is allowed to be closed
         if (this.euiTabs.tabs[toDelete].isClosable){
-            this.euiTabs.tabs[toDelete].isVisible = false;
+            // this.euiTabs.tabs[toDelete].isVisible = false;
             // Delete the elemnt from the table userTabs
             // Remove 2 from the index because we know that there already 2
             // elemnts in the colection of tabs
@@ -58,7 +58,7 @@ export class TutorialEuiTabsComponent {
         }
     }
 
-    public lockTab(){
+    public disableTab(){
         let toLock = this.euiTabs.activeTabIndex;
         if (this.euiTabs.tabs[toLock].isClosable){
             this.euiTabs.tabs[toLock].isDisabled = true;
@@ -66,7 +66,7 @@ export class TutorialEuiTabsComponent {
         this.euiTabs.changeTab(0);
     }
 
-    public unlockTab(){
+    public enableTabs(){
         this.euiTabs.tabs.forEach( t => t.isDisabled = false )
         this.euiTabs.changeTab(this.euiTabs.activeTabIndex);
     }
